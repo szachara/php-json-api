@@ -147,6 +147,12 @@ class DataLinksHelper
             }
         }
 
+        // Temporary fix only
+        if (! empty($newData)) {
+            $data[JsonApiTransformer::RELATIONSHIPS_KEY][$propertyNameKey][JsonApiTransformer::LINKS_KEY] =
+                $newData[JsonApiTransformer::RELATIONSHIPS_KEY][$propertyName][JsonApiTransformer::LINKS_KEY];
+        }
+
         return (array) \array_filter($data);
     }
 
